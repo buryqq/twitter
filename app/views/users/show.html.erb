@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Tweets:</strong>
+  <%= @user.tweets.count %>
+
+</p>
+
+<p>
+  <div class="col-md-12 text-center">
+ <h3><label class="label label-default">Tweets</label></h3>
+</div>
+ </p>
+  <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+  <thead>
+ <p>
+  <tr>
+      <th>Title</th>
+      <th>Kontent</th>
+      <th>Rejting</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ 
+    <tr>
+  <% @user.tweets.each do |tweet| if @user.tweets.any? %>
+      
+        <td><%= tweet.title %></td>
+        <td><%= tweet.kontent %></td>
+        <td><%= tweet.rejting %></td>
+      </tr>
+           </p>    
+  <% end %>
+  <% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-xs btn-info'%> |
+<%= link_to 'Back', users_path, class: 'btn btn-xs btn-primary' %>
+
+ 

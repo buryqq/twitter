@@ -1,0 +1,53 @@
+
+
+   <div id="notice" class="alert alert-success " role="alert">
+         <strong><%= notice %> </div></strong>
+
+  <p>
+<h1>
+  <div class="col-md-12 text-center">
+  <label class="label label-default">Users</label>
+</div>
+</h1>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+      <th>Name</th>
+      <th>Bio</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Ilość tweetow</th>
+             </tr>
+            </thead>
+ <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.bio %></td>
+        <td><%= user.age %></td>
+        <td><%= user.email %></td>
+         <td><% if user.tweets.any?%>
+           <%= user.tweets.count %>
+         <% end %></td>
+        <td><%= link_to 'Show', user , class: 'btn btn-xs btn-warning'%></td>
+        <td><%= link_to 'Edit', edit_user_path(user) , class: 'btn btn-xs btn-info'%></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+          </table>
+        </div>
+
+<br>
+
+<div class="container">
+ <div class="row">
+ <div class="col-md-4"><%= link_to 'New User', new_user_path, class: 'btn btn-sm btn-primary' %></div>
+ <div class="col-md-4"><%= link_to 'Tweets', tweets_path, class: 'btn btn-sm btn-success' %></div>
+<div class="col-md-4"><%= link_to "Bootstrap", '/bootstrap', :method => :get , class: 'btn btn-sm btn-info'%></div>
+</div>
+</div>
