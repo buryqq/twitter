@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
  <strong>Title:</strong>
@@ -16,8 +16,12 @@
 </p>
 
 <p>
- <strong>User ajdi:</strong>
- <%= @tweet.user_id %>
+ <strong>User name:</strong>
+ <% if @tweet.user.present? %>
+ <%= @tweet.user.name %> 
+   <% else %>
+    <%= 'No user'  %>
+ <% end %>
 </p>
 
 

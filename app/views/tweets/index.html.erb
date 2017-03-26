@@ -1,9 +1,4 @@
-<% if notice.present? %>
 
-   <div id="notice" class="alert alert-success " role="alert">
-         <strong><%= notice %> </strong>
-         </div>
-         <%end%>
 
 <p>
 
@@ -37,8 +32,14 @@
         <td><%= tweet.title %></td>
         <td><%= tweet.kontent %></td>
         <td><%= tweet.rejting %></td>
-         <td><%= link_to tweet.user.name, tweet.user, class: 'btn btn btn-primary'   %></td>
-       
+
+<td>
+ <% if tweet.user.present? %>
+   <%= link_to tweet.user.name, tweet.user, class: 'btn btn btn-primary' %>
+ <%end%>
+</td>
+
+
         <td><%= link_to 'Show', tweet, class: 'btn btn-xs btn-warning' %> </td>
         <td><%= link_to 'Edit', edit_tweet_path(tweet), class: 'btn btn-xs btn-info' %> </td>
         <td><%= link_to 'Destroy', tweet, method: :delete, class: 'btn btn-xs btn-danger'%></td>
@@ -59,3 +60,5 @@
 <div class="col-md-4"><%= link_to "Bootstrap", '/bootstrap', :method => :get , class: 'btn btn-sm btn-info'%></div>
 </div>
 </div>
+
+  

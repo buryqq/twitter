@@ -18,11 +18,11 @@
    </div>
 
  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-   </div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+   </div>   
 
  <div class="actions">
   <%=  f.submit %>
  </div>
+
  <% end %>

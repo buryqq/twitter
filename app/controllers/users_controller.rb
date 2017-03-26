@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :authorize]
+  before_action :authorize, only:[:edit, :destroy]
+
 
   # GET /users
   # GET /users.json
@@ -61,7 +63,13 @@ class UsersController < ApplicationController
     end
   end
 
-
+def authorize
+    unless @user_id == current_user.id 
+    flash[:notice] = "You are not the creator of this user, therefore you're not permitted to edit or destroy this user"
+    redirect_to users_path # or anything you prefer
+    return false # Important to let rails know that the controller should not be executed
+  end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
