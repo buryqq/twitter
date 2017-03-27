@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   end
 
 def authorize
-    unless @user_id == current_user.id 
+    unless @user.id == current_user.id 
     flash[:notice] = "You are not the creator of this user, therefore you're not permitted to edit or destroy this user"
     redirect_to users_path # or anything you prefer
     return false # Important to let rails know that the controller should not be executed
