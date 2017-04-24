@@ -1,3 +1,4 @@
-class Group < ApplicationRecord
-	has_and_belongs_to_many :users
+    class Group < ApplicationRecord
+  has_many :users_groups
+  has_many :users, -> { distinct }, through: :users_groups
 end
