@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize, only:[:edit, :destroy]
 
 
+
   # GET /users
   # GET /users.json
   def index
@@ -18,6 +19,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+##@user.groups.build # build ingredient attributes, nothing new here
 
   # GET /users/1/edit
   def edit
@@ -79,6 +82,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :bio, :age, :email)
+      params.require(:user).permit(:name, :bio, :age, :email, group_ids:[])
     end
 end

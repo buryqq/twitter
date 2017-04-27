@@ -6,4 +6,7 @@ class User < ApplicationRecord
 has_many :tweets
 has_many :users_groups
 has_many :groups,  -> { distinct }, through: :users_groups
+
+accepts_nested_attributes_for :groups, :allow_destroy => true
+
 end
