@@ -9,4 +9,7 @@ has_many :groups,  -> { distinct }, through: :users_groups
 
 accepts_nested_attributes_for :groups, :allow_destroy => true
 
+
+
+
 end

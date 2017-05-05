@@ -30,7 +30,8 @@
         <td><%= user.email %></td>
          <td><% if user.tweets.any?%>
            <%= user.tweets.count %>
-           <td><%= user.group_ids %></td>
+           <td><%= user.groups.pluck(:name).join(' ') %></td> 
+                      
          <% end %></td>
         <td><%= link_to 'Show', user , class: 'btn btn-xs btn-warning'%></td>
         <td><%= link_to 'Edit', edit_user_path(user) , class: 'btn btn-xs btn-info'%></td>
