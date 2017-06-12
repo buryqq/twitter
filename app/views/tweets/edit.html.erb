@@ -1,4 +1,9 @@
+<%= @tweet.errors.full_messages.first if @tweet.errors.any? %>
+
+
 <h1> Editing Tweet </h1>
+
+
 
 <%= render 'form', tweet: @tweet %>
 

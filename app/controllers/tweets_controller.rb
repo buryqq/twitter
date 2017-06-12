@@ -14,7 +14,8 @@
     @tweet=Tweet.new
   end
 
-  def edit; end
+  def edit
+  end
 
 
   def create

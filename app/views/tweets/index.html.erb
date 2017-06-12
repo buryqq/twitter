@@ -35,6 +35,7 @@
 <p>
 
 
+
 <h1 class="index-header">
   <div class="col-md-12 text-center">
   <label class="label label-default">Tweets</label>
@@ -59,8 +60,8 @@
          <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-<td><%= tweet.created_at %></td>
-<td><%= tweet.updated_at %></td>
+        <td><%= tweet.created_at %></td>
+        <td><%= tweet.updated_at %></td>
         <td><%= tweet.title %></td>
         <td><%= tweet.kontent %></td>
         <td><%= tweet.rejting %></td>
@@ -69,6 +70,7 @@
  <% if tweet.user.present? %>
    <%= link_to tweet.user.name, tweet.user, class: 'btn btn btn-primary' %>
  <%end%>
+   
 </td>
 
 
